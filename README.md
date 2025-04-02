@@ -25,7 +25,14 @@ Went with both to have the flexibility to find transactions using both.
 
 ## Actions count
 
-Does this value ever change on the api, would I get the same transaction again with more actions, I'm  bit confused by actions_count is this being used as a counter cache? If so should we rely on rails for it? if these actions won't change I think we can use what the api returns but if actions ever change is better to use actions_count as  counter cache to keep integrity. For the sake of timing, I'll use whatever the api responds with, can be adjusted later if needed.
+Does this value ever change on the api?
+Would I get the same transaction again with more actions?
+I'm  bit confused by actions_count is this being used as a counter cache?
+If so should we rely on rails for it?
+
+I think that transactions won't really change once they are created, given the nature of the blockchain but I don't know much about this. I'm assuming that the actions_count is a counter cache and that it won't change once the transaction is created so I'll use it as it comes.
+
+If needed can use rails to update such cache count whenever actions change if they do.
 
 ## API timestamps
 
