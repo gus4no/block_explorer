@@ -1,6 +1,6 @@
-require 'net/http'
-require 'uri'
-require 'json'
+require "net/http"
+require "uri"
+require "json"
 
 class TransactionUpdater
   API_URL = "https://4816b0d3-d97d-47c4-a02c-298a5081c0f9.mock.pstmn.io/near/transactions?api_key=#{Rails.application.credentials.secret_api_key}"

@@ -11,5 +11,5 @@ class Transaction < ApplicationRecord
 
   accepts_nested_attributes_for :actions
 
-  scope :transfers, -> { joins(:actions).where(actions: { action_type: 'Transfer' }) }
+  scope :transfers, -> { joins(:actions).where(actions: { action_type: "Transfer" }) }
 end
