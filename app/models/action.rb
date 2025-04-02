@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Action < ApplicationRecord
-  belongs_to :blockchain_transaction, class_name: "Transaction"
+  belongs_to :blockchain_transaction, class_name: "Transaction", inverse_of: :actions, foreign_key: :transaction_id
 
   scope :transfers, -> { where(action_type: "Transfer") }
 
