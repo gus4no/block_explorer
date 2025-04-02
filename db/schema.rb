@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_02_181537) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_02_185858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -36,8 +36,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_02_181537) do
     t.bigint "gas_burnt", null: false
     t.integer "actions_count", default: 0
     t.boolean "success", default: true, null: false
-    t.datetime "api_created_at", null: false
-    t.datetime "api_updated_at", null: false
+    t.datetime "external_created_at", null: false
+    t.datetime "external_updated_at", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["external_id"], name: "index_transactions_on_external_id", unique: true
