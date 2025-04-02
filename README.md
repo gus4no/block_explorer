@@ -21,7 +21,7 @@ Just go to `http://localhost:3000/` and you will see the table with all the tran
 # Notes and questions about the project
 
 ## Transaction primary key hash or id
-Went with both to have the flexibility to find transactions using both.
+Went with id but also having hash and external id to have the flexibility to find transactions using any.
 
 ## Actions count
 
