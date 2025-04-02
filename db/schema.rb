@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_02_173723) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_02_181537) do
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "pg_catalog.plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.bigint "transaction_id", null: false
+    t.decimal "deposit", precision: 30, default: "0", null: false
+    t.string "action_type", null: false
+    t.jsonb "data", default: {}
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["data"], name: "index_actions_on_data", using: :gin
+    t.index ["transaction_id"], name: "index_actions_on_transaction_id"
+  end
+
   create_table "transactions", force: :cascade do |t|
     t.bigint "external_id", null: false
     t.datetime "time", null: false
@@ -29,4 +43,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_02_173723) do
     t.index ["external_id"], name: "index_transactions_on_external_id", unique: true
     t.index ["hash"], name: "index_transactions_on_hash", unique: true
   end
+
+  add_foreign_key "actions", "transactions"
 end
