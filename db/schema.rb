@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_04_02_185858) do
+ActiveRecord::Schema[8.0].define(version: 2025_04_02_193318) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -29,7 +29,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_02_185858) do
     t.bigint "external_id", null: false
     t.datetime "time", null: false
     t.integer "height", null: false
-    t.string "hash", null: false
+    t.string "tx_hash", null: false
     t.string "block_hash", null: false
     t.string "sender", null: false
     t.string "receiver", null: false
@@ -41,7 +41,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_04_02_185858) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["external_id"], name: "index_transactions_on_external_id", unique: true
-    t.index ["hash"], name: "index_transactions_on_hash", unique: true
+    t.index ["tx_hash"], name: "index_transactions_on_tx_hash", unique: true
   end
 
   add_foreign_key "actions", "transactions"
