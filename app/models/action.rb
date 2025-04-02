@@ -1,9 +1,7 @@
 # frozen_string_literal: true
 
 class Action < ApplicationRecord
-  belongs_to :transaction
-
-  enum action_type: { transfer: "Transfer", function_call: "FunctionCall" }
+  belongs_to :blockchain_transaction, class_name: "Transaction"
 
   scope :transfers, -> { where(action_type: "Transfer") }
 
