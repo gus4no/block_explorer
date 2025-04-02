@@ -1,0 +1,28 @@
+<% if @transactions.present? %>
+  <div class="transactions">
+    <% @transactions.each do |transaction| %>
+      <div class="transaction">
+        <p><strong>Transaction ID:</strong> <%= transaction.id %></p>
+        <p><strong>Block Hash:</strong> <%= transaction.block_hash %></p>
+
+        <% if transaction.actions.present? %>
+          <div class="actions">
+            <p><strong>Actions:</strong></p>
+            <% transaction.actions.each do |action| %>
+              <div class="action">
+                <p><strong>Action ID:</strong> <%= action.id %></p>
+                <p><strong>Deposit:</strong> <%= action.deposit %></p>
+              </div>
+            <% end %>
+          </div>
+        <% else %>
+          <p>No actions available</p>
+        <% end %>
+
+        <hr>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <p>No transactions available.</p>
+<% end %>
