@@ -46,7 +46,7 @@ Not sure if other types of transactions are relevant given we only want to show 
 
 Don't know much about the blockchain world, data for actions have different attributes depending on the action type. Not sure how much flexibility we want here to use things like jsonb vs dedicated columns to store these. Each of them have their pros and cons, but given we may need faster querying and indexing I'll go with dedicated columns for now or maybe a hybrid approach where commonly queried fields like 'deposit' are dedicated columns.
 
-I worry that a single action model ends up with  bunch of different columns that are not needed for a specific action type, can also use different models for each action type. like TransferAction and FunctionCallAction and have each its own set of dedicated columns but that comes with added complexity.
+I worry that a single action model ends up with  bunch of different columns that are not needed for a specific action type, can also use different models for each action type. like TransferAction and FunctionCallAction and have each its own set of dedicated columns but that comes with added complexity and there's limited time.
 
 ## Upsert vs find_or_initialize
 
@@ -68,7 +68,14 @@ While transactions are fetched in the controller, I wonder if these should be mo
 For the purpose of the test I assumed it was fine to fetch them in the controller.
 
 
-# Nice to haves
+# Time spent
+
+Being honest I went over the time mark, I think there are some things that can be improved still. 
+I think I made some mistakes trying to make this as performant as possible with tools and APIs I know but I'm not familiar with..... like using upserts in Rails.
+
+Having said so here's list of nice to haves and things I could have done.
+
+## Nice to haves
 
 - Tailwind styling
 - More tests for more scenarios and edge cases
