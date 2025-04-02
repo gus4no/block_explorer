@@ -23,5 +23,9 @@ module BlockExplorer
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    #
+    # Should find the exact reason why decimal is not working for action.deposit,
+    # need to save some time now.
+    ActiveRecord.raise_int_wider_than_64bit = false
   end
 end
